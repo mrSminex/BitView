@@ -1,0 +1,19 @@
+# Файлы сборки
+build-*/
+*/build-*/
+
+# Каталоги, создаваемые Qt Creator
+*.user
+*.user.*
+
+# Каталоги сборки Qt
+release/
+debug/
+*.autosave
+
+# Специфичные для Qt
+Makefile*
+*.pro.user
+
+*.pcm
+/test_streams

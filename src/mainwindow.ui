@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>806</width>
+    <height>608</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Просмотр битового потока</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="Viewer" name="dataVWR" native="true">
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QScrollBar" name="rowVSB">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QScrollBar" name="clmHSB">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>806</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="openACT"/>
+    <addaction name="closeACT"/>
+    <addaction name="separator"/>
+    <addaction name="quitACT"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Окно</string>
+    </property>
+    <addaction name="paramACT"/>
+    <addaction name="separator"/>
+    <addaction name="restoreACT"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="aboutACT"/>
+    <addaction name="qtInfoACT"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QToolBar" name="fileTLB">
+   <property name="windowTitle">
+    <string>Файл</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="openACT"/>
+   <addaction name="closeACT"/>
+   <addaction name="separator"/>
+   <addaction name="quitACT"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="paramDWG">
+   <property name="windowTitle">
+    <string>Параметры</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="scaleSBX"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="periodLBL">
+       <property name="text">
+        <string>Период</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QSlider" name="shiftHSL">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QSlider" name="scaleHSL">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="periodSBX"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="shiftSBX"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="shiftLBL">
+       <property name="text">
+        <string>Сдвиг</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="scaleLBL">
+       <property name="text">
+        <string>Масштаб</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QSlider" name="periodHSL">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="windowTLB">
+   <property name="windowTitle">
+    <string>Окно</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="paramACT"/>
+   <addaction name="separator"/>
+   <addaction name="restoreACT"/>
+  </widget>
+  <widget class="QToolBar" name="helpTLB">
+   <property name="windowTitle">
+    <string>Справка</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="aboutACT"/>
+   <addaction name="qtInfoACT"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Способ отображения</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="bitACT"/>
+   <addaction name="hexACT"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="reverseACT"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_3">
+   <property name="windowTitle">
+    <string>toolBar_3</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="demultACT"/>
+  </widget>
+  <action name="quitACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/277-exit.png</normaloff>:/img/277-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+X</string>
+   </property>
+  </action>
+  <action name="openACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/049-folder-open.png</normaloff>:/img/049-folder-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Открыть</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="closeACT">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/270-cancel-circle.png</normaloff>:/img/270-cancel-circle.png</iconset>
+   </property>
+   <property name="text">
+    <string>Закрыть</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="paramACT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/147-equalizer.png</normaloff>:/img/147-equalizer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Окно &quot;Параметры&quot;</string>
+   </property>
+  </action>
+  <action name="restoreACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/341-radio-checked.png</normaloff>:/img/341-radio-checked.png</iconset>
+   </property>
+   <property name="text">
+    <string>Восстановить окна</string>
+   </property>
+  </action>
+  <action name="aboutACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/226-smile.png</normaloff>:/img/226-smile.png</iconset>
+   </property>
+   <property name="text">
+    <string>О себе</string>
+   </property>
+  </action>
+  <action name="qtInfoACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/269-info.png</normaloff>:/img/269-info.png</iconset>
+   </property>
+   <property name="text">
+    <string>О Qt</string>
+   </property>
+  </action>
+  <action name="bitACT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/0b.png</normaloff>:/img/0b.png</iconset>
+   </property>
+   <property name="text">
+    <string>0b</string>
+   </property>
+   <property name="toolTip">
+    <string>Отображать биты</string>
+   </property>
+  </action>
+  <action name="hexACT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/0x.png</normaloff>:/img/0x.png</iconset>
+   </property>
+   <property name="text">
+    <string>0xHEX</string>
+   </property>
+   <property name="toolTip">
+    <string>Отображать HEX</string>
+   </property>
+  </action>
+  <action name="reverseACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/302-loop.png</normaloff>:/img/302-loop.png</iconset>
+   </property>
+   <property name="text">
+    <string>reverse</string>
+   </property>
+   <property name="toolTip">
+    <string>Разворот бит</string>
+   </property>
+  </action>
+  <action name="demultACT">
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/099-floppy-disk-8.png</normaloff>:/img/099-floppy-disk-8.png</iconset>
+   </property>
+   <property name="text">
+    <string>Демультиплексирование</string>
+   </property>
+   <property name="toolTip">
+    <string>Демультиплексирование</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Viewer</class>
+   <extends>QWidget</extends>
+   <header>Viewer.h</header>
+   <container>1</container>
+   <slots>
+    <signal>rowRangeChanged(int,int)</signal>
+    <signal>rowChanged(int)</signal>
+    <signal>clmRangeChanged(int,int)</signal>
+    <signal>clmChanged(int)</signal>
+    <signal>shiftRangeChanged(int,int)</signal>
+    <slot>setPeriod(int)</slot>
+    <slot>setStartRow(int)</slot>
+    <slot>setStartClm(int)</slot>
+    <slot>recalculate()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="q.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>periodHSL</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>periodSBX</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>periodSBX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>periodHSL</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>357</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleHSL</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>scaleSBX</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>78</x>
+     <y>402</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleSBX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>scaleHSL</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>412</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>402</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>shiftHSL</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>shiftSBX</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>384</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>shiftSBX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>shiftHSL</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>384</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>385</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>quitACT</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>paramACT</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>paramDWG</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>paramDWG</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>paramACT</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>428</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>clmChanged(int)</signal>
+   <receiver>clmHSB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>clmChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>clmRangeChanged(int,int)</signal>
+   <receiver>clmHSB</receiver>
+   <slot>setRange(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>clmRangeChanged(int,int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>rowChanged(int)</signal>
+   <receiver>rowVSB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>633</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>rowChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>rowRangeChanged(int,int)</signal>
+   <receiver>rowVSB</receiver>
+   <slot>setRange(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>633</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>rowRangeChanged(int,int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>shiftRangeChanged(int,int)</signal>
+   <receiver>shiftHSL</receiver>
+   <slot>setRange(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>327</x>
+     <y>385</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dataVWR</sender>
+   <signal>shiftRangeChanged(int,int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printinfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clmHSB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dataVWR</receiver>
+   <slot>setStartClm(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>251</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rowVSB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dataVWR</receiver>
+   <slot>setStartRow(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>633</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>periodHSL</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dataVWR</receiver>
+   <slot>setPeriod(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>123</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>printinfo()</slot>
+ </slots>
+</ui>

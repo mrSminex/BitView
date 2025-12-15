@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../img/013-paint-format.png</file>
+        <file>../img/049-folder-open.png</file>
+        <file>../img/099-floppy-disk.png</file>
+        <file>../img/099-floppy-disk-8.png</file>
+        <file>../img/147-equalizer.png</file>
+        <file>../img/226-smile.png</file>
+        <file>../img/269-info.png</file>
+        <file>../img/270-cancel-circle.png</file>
+        <file>../img/277-exit.png</file>
+        <file>../img/302-loop.png</file>
+        <file>../img/341-radio-checked.png</file>
+        <file>../img/fly.gif</file>
+        <file>../img/invert.png</file>
+        <file>../img/0b.png</file>
+        <file>../img/0x.png</file>
+    </qresource>
+</RCC>
