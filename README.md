@@ -82,12 +82,12 @@ class BaseDelegate : public QObject
 
 1. **Открыть проект в Qt Creator:**
    ```
-   Открыть файл Mattress-2025-2.pro
+   Открыть файл BitView.pro
    ```
 
 2. **Сборка через qmake:**
    ```bash
-   qmake Mattress-2025-2.pro
+   qmake BitView.pro
    make
    ```
 
