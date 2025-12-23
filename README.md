@@ -1,102 +1,102 @@
 # BitView
 
-Приложение для визуального анализа бинарных файлов.
+Application for visual analysis of binary files.
 
-## Особенности проекта
+## Project Features
 
-**BitView** - это специализированное приложение для анализа бинарных файлов, разработанное на фреймворке Qt. Основная особенность программы заключается в уникальном способе визуализации данных - "матрасной" развертке, которая позволяет:
+**BitView** is a specialized application for binary file analysis, developed on the Qt framework. The main feature of the program is a unique data visualization method - "mattress" unfolding, which allows:
 
-- **Визуализировать битовый поток** в виде цветного "матраса" с периодической разверткой
-- **Анализировать паттерны** в бинарных данных путем цветового кодирования битов (0/1)
-- **Масштабировать отображение** для детального изучения отдельных участков
-- **Демультиплексировать каналы** из потока данных в отдельные файлы
+- **Visualize bit stream** as a colored "mattress" with periodic unfolding
+- **Analyze patterns** in binary data through color coding of bits (0/1)
+- **Scale the display** for detailed study of individual sections
+- **Demultiplex channels** from the data stream into separate files
 
-### Основные возможности
+### Main Features
 
-- **Два режима отображения:**
-  - Битовый режим (Bit View) - каждый бит отображается отдельным пикселем
-  - Шестнадцатеричный режим (Hex View) - данные группируются по 4 бита
-  
-- **Обработка данных:**
-  - Сдвиг битов для анализа с разных позиций
-  - Реверс байтов (инвертирование порядка битов)
-  - Демультиплексирование каналов
+- **Two display modes:**
+  - Bit mode (Bit View) - each bit is displayed as a separate pixel
+  - Hexadecimal mode (Hex View) - data is grouped by 4 bits
+
+- **Data processing:**
+  - Bit shifting for analysis from different positions
+  - Byte reversal (bit order inversion)
+  - Channel demultiplexing
 
 
-## Архитектура MVC
+## MVC Architecture
 
-Проект реализован с использованием паттерна **Model-View-Controller (MVC)** с дополнительным слоем делегатов для гибкой системы отображения.
+The project is implemented using the **Model-View-Controller (MVC)** pattern with an additional delegate layer for a flexible display system.
 
-### Model (Модель)
+### Model
 ```cpp
 class Model : public QObject
 ```
-**Ответственность:**
-- Управление доступом к данным файла
-- Кэширование данных (чтение по страницам по 16MB)
-- Обработка сдвига битов и реверса байтов
-- Демультиплексирование каналов
+**Responsibilities:**
+- File data access management
+- Data caching (reading in 16MB pages)
+- Bit shifting and byte reversal processing
+- Channel demultiplexing
 
-**Ключевые методы:**
-- `getBits()` - получение массива битов для отображения
-- `setShift()` - установка сдвига битов
-- `setReverse()` - включение/выключение реверса
-- `demultiplexChannel()` - извлечение канала в отдельный файл
+**Key methods:**
+- `getBits()` - getting an array of bits for display
+- `setShift()` - setting bit shift
+- `setReverse()` - enabling/disabling reversal
+- `demultiplexChannel()` - extracting a channel to a separate file
 
-### Viewer (Вид)
+### Viewer
 ```cpp
 class Viewer : public QWidget
 ```
-**Ответственность:**
-- Отображение данных в виде "матраса"
-- Обработка пользовательского ввода (мышь, колесо)
-- Управление прокруткой и масштабированием
+**Responsibilities:**
+- Displaying data as a "mattress"
+- Handling user input (mouse, wheel)
+- Managing scrolling and scaling
 
-**Особенности:**
-- Кастомная отрисовка с использованием QPainter
-- Поддержка drag-and-drop для навигации
-- Автоматическое обновление при изменении данных
+**Features:**
+- Custom drawing using QPainter
+- Drag-and-drop support for navigation
+- Automatic updates when data changes
 
-### Delegate (Делегат отображения)
+### Delegate (Display Delegate)
 ```cpp
 class BaseDelegate : public QObject
 ```
-**Иерархия делегатов:**
-- `BaseDelegate` - абстрактный базовый класс
-- `BitDelegate` - делегат для битового отображения
-- `HexDelegate` - делегат для шестнадцатеричного отображения
+**Delegate hierarchy:**
+- `BaseDelegate` - abstract base class
+- `BitDelegate` - delegate for bit display
+- `HexDelegate` - delegate for hexadecimal display
 
-**Ответственность:**
-- Определение цветов для отображения битов/символов
-- Расчет размеров элементов отображения
-- Отрисовка отдельных строк данных
+**Responsibilities:**
+- Defining colors for displaying bits/symbols
+- Calculating display element sizes
+- Drawing individual data rows
 
-## Сборка проекта
+## Building the Project
 
-### Требования
-- **Qt Framework** 5.x или выше
-- **Компилятор C++11** (MinGW, MSVC, GCC)
-- **Qt Creator** (рекомендуется) или qmake
+### Requirements
+- **Qt Framework** 5.x or higher
+- **C++11 compiler** (MinGW, MSVC, GCC)
+- **Qt Creator** (recommended) or qmake
 
-### Команды сборки
+### Build Commands
 
-1. **Открыть проект в Qt Creator:**
+1. **Open project in Qt Creator:**
    ```
-   Открыть файл BitView.pro
+   Open BitView.pro file
    ```
 
-2. **Сборка через qmake:**
+2. **Build via qmake:**
    ```bash
    qmake BitView.pro
    make
    ```
 
-## Пример использования
-### Главное окно приложения
-![Главное окно](./img/test1.png)
-### Демультиплексирование выбранного канала
-![Демультепликсирование выбранного канала](./img/test2.png)
-### Использование CoolEdit для обработки выделенной информации
+## Usage Example
+### Main Application Window
+![Main Window](./img/test1.png)
+### Demultiplexing Selected Channel
+![Demultiplexing Selected Channel](./img/test2.png)
+### Using CoolEdit for Processing Selected Information
 ![](./img/test3.png)
 ![](./img/test4.png)
 ![](./img/test5.png)
