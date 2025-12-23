@@ -15,5 +15,6 @@
         <file>../img/invert.png</file>
         <file>../img/0b.png</file>
         <file>../img/0x.png</file>
+        <file>../img/text.png</file>
     </qresource>
 </RCC>

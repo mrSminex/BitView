@@ -42,6 +42,8 @@ private slots:
 
     void on_demultACT_triggered(); //+++
 
+    void on_actionOxT_toggled(bool arg1);
+
 private:
     Ui::MainWindow  *ui;
 

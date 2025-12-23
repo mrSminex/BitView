@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
     DemultStreamDialog.cpp \
+    MVC/TextDelegate.cpp \
         main.cpp \
         mainwindow.cpp \
     AboutDialog.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     DemultStreamDialog.h \
+    MVC/TextDelegate.h \
         mainwindow.h \
     AboutDialog.h \
     MVC/Model.h \

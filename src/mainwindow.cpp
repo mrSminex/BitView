@@ -9,6 +9,7 @@
 //----------------------------------------------------------
 #include "BitDelegate.h"
 #include "HexDelegate.h"
+#include "TextDelegate.h"
 #include "Model.h"
 //----------------------------------------------------------
 MainWindow::MainWindow(QWidget *parent) :
@@ -178,14 +179,24 @@ void MainWindow::printinfo()
 void MainWindow::on_bitACT_toggled(bool arg1)
 {
     ui->bitACT->setChecked(arg1);
-    ui->hexACT->setChecked(!arg1);
+    ui->hexACT->setChecked(false);
+    ui->actionOxT->setChecked(false);
     setDelegate();
 }
 //----------------------------------------------------------
 void MainWindow::on_hexACT_toggled(bool arg1)
 {
-    ui->bitACT->setChecked(!arg1);
+    ui->bitACT->setChecked(false);
     ui->hexACT->setChecked(arg1);
+    ui->actionOxT->setChecked(false);
+    setDelegate();
+}
+//----------------------------------------------------------
+void MainWindow::on_actionOxT_toggled(bool arg1)
+{
+    ui->bitACT->setChecked(false);
+    ui->hexACT->setChecked(false);
+    ui->actionOxT->setChecked(arg1);
     setDelegate();
 }
 //----------------------------------------------------------
@@ -194,9 +205,11 @@ void MainWindow::setDelegate()
     BaseDelegate *delegate = nullptr;
 
     if(ui->bitACT->isChecked()){
-        delegate = new BitDelegate; // создали,
-    } else {
-        delegate = new HexDelegate;
+        delegate = new BitDelegate(this); // создали,
+    } else if(ui->hexACT->isChecked()){
+        delegate = new HexDelegate(this);
+    } else if(ui->actionOxT->isChecked()){
+        delegate = new TextDelegate(this);
     }
     if(delegate){
         delegate->setScale(ui->scaleHSL->value()); // связали с изменением на польз интерфейсе
@@ -228,7 +241,7 @@ void MainWindow::on_demultACT_triggered()
         return;
     }
 
-    DemultStreamDialog *dsd = new DemultStreamDialog( this );
+   DemultStreamDialog *dsd = new DemultStreamDialog( this );
 
     // Получаем текущий делегат для связи с диалогом
    BaseDelegate *currentDelegate = nullptr;
@@ -264,3 +277,4 @@ void MainWindow::on_demultACT_triggered()
     delete dsd;
 }
 //------------------------------------------------------------------
+

@@ -123,7 +123,7 @@
      <x>0</x>
      <y>0</y>
      <width>806</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -285,6 +285,7 @@
    </attribute>
    <addaction name="bitACT"/>
    <addaction name="hexACT"/>
+   <addaction name="actionOxT"/>
    <addaction name="separator"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
@@ -448,6 +449,24 @@
    </property>
    <property name="toolTip">
     <string>Демультиплексирование</string>
+   </property>
+  </action>
+  <action name="actionOxT">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="q.qrc">
+     <normaloff>:/img/text.png</normaloff>:/img/text.png</iconset>
+   </property>
+   <property name="text">
+    <string>OxT</string>
+   </property>
+   <property name="toolTip">
+    <string>Отображение текста</string>
    </property>
   </action>
  </widget>
